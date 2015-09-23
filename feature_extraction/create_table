@@ -7,7 +7,7 @@ create table dim_fashion_matchsets
 	coll_id		bigint	not null auto_increment,
 	item_list	char(255)	not null,
 	primary key (coll_id)
-) engine = InnoDB;
+) engine = MyISAM;
 
 ##############
 #create dim_items
@@ -18,7 +18,7 @@ create table dim_items
 	cat_id		bigint 	not null,
 	terms		char(255) not null,
 	primary key (item_id)
-) engine = InnoDB;
+) engine = MyISAM;
 
 ##############
 #create user_bought_history
@@ -29,5 +29,5 @@ create table user_bought_history
 	item_id		bigint	not null,
 	create_at 	char(15) not null,
 	primary key (user_id, item_id, create_at)
-) engine = InnoDB;
+) engine = MyISAM;
 
