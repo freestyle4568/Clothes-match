@@ -1,0 +1,33 @@
+use clothesmatch;
+##########
+#create dim_fashion_matchsets
+##########
+create table dim_fashion_matchsets
+(
+	coll_id		bigint	not null auto_increment,
+	item_list	char(255)	not null,
+	primary key (coll_id)
+) engine = InnoDB;
+
+##############
+#create dim_items
+##############
+create table dim_items
+(
+	item_id		bigint	not null auto_increment,
+	cat_id		bigint 	not null,
+	terms		char(255) not null,
+	primary key (item_id)
+) engine = InnoDB;
+
+##############
+#create user_bought_history
+##############
+create table user_bought_history
+(
+	user_id		bigint 	not null,
+	item_id		bigint	not null,
+	create_at 	char(15) not null,
+	primary key (user_id, item_id, create_at)
+) engine = InnoDB;
+

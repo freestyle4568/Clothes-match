@@ -1,0 +1,4 @@
+use clothesmatch;
+select * from user_bought_history
+order by user_id, create_at
+into outfile '/tmp/user_bought_history.txt';

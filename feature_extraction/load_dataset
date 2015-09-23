@@ -1,0 +1,37 @@
+#create database clothesmatch;
+#grant all on clothesmatch.* to freestyle4568;
+use clothesmatch;
+
+################
+#environment set
+###############
+set global max_allowed_packet=800000000;
+set global net_buffer_length=100000;
+set GLOBAL  interactive_timeout=28800000;
+set GLOBAL  wait_timeout=28800000;
+
+#######################
+#load dim_items
+######################
+load data infile '/tmp/dim_items.txt'
+into table dim_items
+fields terminated by ' '
+lines terminated by '\n';
+
+
+######################
+#load dim_fashion_matchsets
+#######################
+load data infile '/tmp/dim_fashion_matchsets.txt'
+into table dim_fashion_matchsets
+fields terminated by ' '
+lines terminated by '\n';
+
+
+#########################
+#load user_bought_history
+########################
+load data infile '/tmp/user_bought_history.txt'
+into table user_bought_history
+fields terminated by ' '
+lines terminated by '\n';
