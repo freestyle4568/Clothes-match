@@ -1,0 +1,30 @@
+use clothesmatch;
+#######################################
+#deal with user_bought_history order by user_id 
+#######################################
+select * from user_bought_history order by user_id, create_at;
+
+###########################################
+#create view and count the user
+###########################################
+create view user_press as
+select distinct user_id from user_bought_history;
+select count(user_id) as num_user from user_press;
+
+##########################################
+#create cat_id and user_id table
+##########################################
+create view user_cat as
+select distinct user_id, cat_id
+from user_bought_history, dim_items
+where user_bought_history.item_id = dim_items.item_id
+order by user_id, cat_id;
+
+###########################################
+#create user_id and cat_id set(separated by ',') table
+###########################################
+select user_id, group_concat(cat_id) as catset
+from user_cat
+group by user_id
+order by user_id
+into outfile '/tmp/user_catset.txt';
