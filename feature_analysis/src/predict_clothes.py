@@ -108,8 +108,10 @@ if __name__ == '__main__':
     for i in range(len(catfreq_list)):
         print(catfreq_list[i])
     
-    for i in support_data.items():
-        print(i)
+    #===========================================================================
+    # for i in support_data.items():
+    #     print(i)
+    #===========================================================================
     
     big_rule_list = apriori.generate_rules(catfreq_list, support_data, 0.5)
     print('rule list follows: ')
