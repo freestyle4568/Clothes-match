@@ -1,0 +1,8 @@
+############################
+#create test_id and cat_id table
+############################
+select test_items.item_id, cat_id
+from dim_items, test_items
+where dim_items.item_id = test_items.item_id
+order by test_items.item_id
+into outfile '/tmp/test_cat.txt';

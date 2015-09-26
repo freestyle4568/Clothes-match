@@ -18,7 +18,7 @@ create table dim_items
 	cat_id		bigint 	not null,
 	terms		char(255) not null,
 	primary key (item_id)
-) engine = MyISAM;
+) engine = MEMORY;
 
 ##############
 #create user_bought_history
@@ -29,7 +29,7 @@ create table user_bought_history
 	item_id		bigint	not null,
 	create_at 	char(15) not null,
 	primary key (user_id, item_id, create_at)
-) engine = MyISAM;
+) engine = MEMORY;
 
 ############################
 #create test_items

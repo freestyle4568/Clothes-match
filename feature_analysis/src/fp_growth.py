@@ -14,7 +14,6 @@ user guide: result_list, support_data_dict = fptree(dataset, min_support)
 support_data_dict为字典格式，元素为(frozenset({}): number)
 """
 from operator import itemgetter
-import apriori
 
 class TreeNode:
     def __init__(self, name_value, num_occur, parent_node):
@@ -44,9 +43,10 @@ def create_tree(dataset, min_support=1):
     for k in tmp_keys:
         if header_table[k] < min_support:
             header_table.pop(k)
-    
+    #print("frist header_table is: ", header_table)
     freqitem_set = set(header_table.keys())
     if len(freqitem_set) == 0:
+        #raise RuntimeError('no freqitems satisfy this min_support')
         return None, None
     
     for k in header_table:
@@ -158,12 +158,15 @@ def resultlist2dict(freqitem_list, support_list):
 
 
 def fptree(dataset, min_support):
+    data_len = len(dataset)
     dataset_dict = create_init_set(dataset)
     FPtree, header_table = create_tree(dataset_dict, min_support)
     freqitem_list = []
     support_list = []
     mine_tree(FPtree, header_table, min_support, set([]), freqitem_list, support_list)
     result_list, support_data = resultlist2dict(freqitem_list, support_list)
+    for i in support_data:
+        support_data[i] = support_data[i]/data_len
     return result_list, support_data
 
 if __name__ == '__main__':
@@ -176,7 +179,7 @@ if __name__ == '__main__':
     for i in range(10):
         print(dataset[i])
     dataset = load_simple_data()
-    result_list, support_data = fptree(dataset[0:1000], 100)
+    result_list, support_data = fptree(dataset, 3)
     for i in result_list:
         print(i)
     print(len(support_data))

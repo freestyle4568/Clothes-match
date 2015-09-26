@@ -9,6 +9,8 @@ set global max_allowed_packet=800000000;
 set global net_buffer_length=100000;
 set GLOBAL  interactive_timeout=28800000;
 set GLOBAL  wait_timeout=28800000;
+set global  max_heap_table_size = 500*1024*1024;
+
 
 #######################
 #load dim_items
@@ -18,6 +20,12 @@ into table dim_items
 fields terminated by ' '
 lines terminated by '\n';
 
+##########################
+#load test_items
+##########################
+load data infile '/tmp/test_items.txt'
+into table test_items
+lines terminated by '\n';
 
 ######################
 #load dim_fashion_matchsets
