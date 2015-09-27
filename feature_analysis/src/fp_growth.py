@@ -127,7 +127,7 @@ def mine_tree(tree, header_table, min_support, prefix, freqitem_list, support_li
         new_freq_set = prefix.copy()
         new_freq_set.add(base)
         freqitem_list.append(new_freq_set)
-        print(new_freq_set)
+        #print(new_freq_set)
         support_list.append(header_table[base][0])
         condition_path = find_prefix_path(header_table[base][1])
         condition_tree, condition_header_table = create_tree(condition_path, min_support)
