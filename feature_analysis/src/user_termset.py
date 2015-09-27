@@ -7,7 +7,7 @@ Created on Sep 26, 2015
 @author: freestyle4568
 '''
 
-import cPickle as pickle
+import pickle
 
 def loadtestitems(filename):
     """导入待测商品id

@@ -3,4 +3,6 @@ encoding//src/apriori.py=utf-8
 encoding//src/fp_growth.py=utf-8
 encoding//src/open_user_term.py=utf-8
 encoding//src/predict_clothes.py=utf-8
+encoding//src/termfreq_list.py=utf-8
+encoding//src/unrepeat_termfreq_list.py=utf-8
 encoding//src/user_termset.py=utf-8
