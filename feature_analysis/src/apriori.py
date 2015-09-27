@@ -117,7 +117,7 @@ def calculate_confidence(freq_set, H, support_data, big_rule_list, min_confidenc
     for conseq in H:
         confidence = support_data[freq_set] / support_data[freq_set - conseq]
         if confidence >= min_confidence:
-            print(freq_set - conseq, '-->', conseq, '  confidence:', confidence)
+            #print(freq_set - conseq, '-->', conseq, '  confidence:', confidence)
             qualified_H.append(conseq)
             big_rule_list.append((freq_set - conseq, conseq, confidence))
     return qualified_H
