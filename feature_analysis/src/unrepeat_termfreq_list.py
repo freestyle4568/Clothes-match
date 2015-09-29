@@ -21,7 +21,7 @@ def load_termfreq(filename):
     return termfreq_list
 
 if __name__ == '__main__':
-    termfreq_file = '/home/freestyle4568/lesson/Clothes-match-txt/termfreq_10000.pickle'
+    termfreq_file = '/home/freestyle4568/lesson/Clothes-match-txt/termfreq_pickle'
     termfreq_list = load_termfreq(termfreq_file)
     
     #===========================================================================
@@ -41,7 +41,7 @@ if __name__ == '__main__':
     for i in range(40):
         print(unrepeat_termfreq[i])
     
-    unrepeat_termfreq_file = '/home/freestyle4568/lesson/Clothes-match-txt/unrepeat_termfreq.pickle'
+    unrepeat_termfreq_file = '/home/freestyle4568/lesson/Clothes-match-txt/unrepeat_termfreq_100000.pickle'
     fr = open(unrepeat_termfreq_file, 'wb')
     pickle.dump(unrepeat_termfreq, fr)
     fr.close()
